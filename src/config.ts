@@ -1,4 +1,6 @@
 
+import { PoolConfig } from 'mysql';
+
 export const config = require('../config') as Config;
 
 interface Config {
@@ -43,5 +45,11 @@ interface Config {
 		 * machine available for other work
 		 */
 		extraCpus?: number
+	},
+
+	/** Configuration for the MySQL database connection */
+	mysql: {
+		master: PoolConfig,
+		replica: PoolConfig
 	}
 }

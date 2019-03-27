@@ -1,6 +1,7 @@
 
 const endpointFiles: string[] = [
-	'healthcheck'
+	'healthcheck',
+	'user/find-by-email'
 ];
 
 export const loadEndpoints = () => {
