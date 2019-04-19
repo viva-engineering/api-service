@@ -1,5 +1,6 @@
 
 import { PoolConfig } from 'mysql';
+import { DnsCacheParams, HttpClientParams } from '@viva-eng/http-client';
 
 export const config = require('../config') as Config;
 
@@ -51,5 +52,13 @@ interface Config {
 	mysql: {
 		master: PoolConfig,
 		replica: PoolConfig
+	},
+
+	/** Configuration for the DNS cache */
+	dnsCache: DnsCacheParams;
+
+	/** Configuration for various HTTP APIs */
+	services: {
+		authService: HttpClientParams
 	}
 }

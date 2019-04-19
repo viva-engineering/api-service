@@ -1,10 +1,16 @@
 
 import { logger } from './logger';
 import { config } from './config';
-import { DatabasePool, SelectQuery } from '@viva-eng/database';
+import { init, db } from '@viva-eng/viva-database';
 import { addOnShutdown } from '@viva-eng/cluster';
+import { PoolConnection } from 'mysql';
 
-export const db = new DatabasePool({
+logger.verbose('Initializing database pool', {
+	master: config.mysql.master.host,
+	replica: config.mysql.replica.host
+});
+
+init({
 	master: config.mysql.master,
 	replica: config.mysql.replica,
 	logger
